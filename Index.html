@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIMITLESS — THE AWAKENING</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #050505;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .content {
+            max-width: 650px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            letter-spacing: 8px;
+        }
+
+        .subtitle {
+            color: #888;
+            letter-spacing: 4px;
+            margin: 12px 0 35px;
+        }
+
+        .story {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        button {
+            padding: 13px 30px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            cursor: pointer;
+            letter-spacing: 3px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        #chapter {
+            display: none;
+        }
+
+        #chapter h2 {
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        #chapter p {
+            color: #ccc;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .memory {
+            color: #fff;
+            font-style: italic;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="screen">
+
+        <!-- TITLE SCREEN -->
+        <section class="content" id="intro">
+
+            <h1>LIMITLESS</h1>
+
+            <div class="subtitle">
+                THE AWAKENING
+            </div>
+
+            <div class="story">
+                He awoke without a name.
+                <br>
+                Without a past.
+                <br>
+                Only fragments remained.
+            </div>
+
+            <button onclick="beginStory()">
+                BEGIN
+            </button>
+
+        </section>
+
+
+        <!-- CHAPTER ONE -->
+        <section class="content" id="chapter">
+
+            <h2>CHAPTER ONE</h2>
+
+            <p>Darkness.</p>
+
+            <p>A breath.</p>
+
+            <p>His eyes opened.</p>
+
+            <p>Nothing felt familiar.</p>
+
+            <p>Then—</p>
+
+            <p>A memory.</p>
+
+            <p>A voice.</p>
+
+            <p>He couldn't see the face.</p>
+
+            <p>He couldn't remember the name.</p>
+
+            <p>But he remembered the words.</p>
+
+            <p class="memory">
+                "You have to remember."
+            </p>
+
+            <p>The memory remained.</p>
+
+            <p>
+                And for the first time, he knew one thing:
+            </p>
+
+            <p>
+                Someone wanted him to remember.
+            </p>
+
+            <button onclick="nextChapter()">
+                CONTINUE
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function beginStory() {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("chapter").style.display = "block";
+        }
+
+        function nextChapter() {
+            alert("Chapter One continues...");
+        }
+
+    </script>
+
+</body>
+</html>
