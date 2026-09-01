@@ -1,179 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIMITLESS — THE AWAKENING</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIMITLESS — THE AWAKENING</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: #050505;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .screen {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-        }
+body {
+    background: #050505;
+    color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        .content {
-            max-width: 650px;
-        }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(255,255,255,0.05), transparent 35%),
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: auto, 40px 40px, 40px 40px;
+    pointer-events: none;
+    z-index: -1;
+}
 
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            letter-spacing: 8px;
-        }
+section {
+    min-height: 100vh;
+    padding: 70px 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .subtitle {
-            color: #888;
-            letter-spacing: 4px;
-            margin: 12px 0 35px;
-        }
+.container {
+    width: 100%;
+    max-width: 900px;
+}
 
-        .story {
-            color: #ccc;
-            line-height: 1.8;
-            margin-bottom: 35px;
-        }
+/* INTRO */
 
-        button {
-            padding: 13px 30px;
-            background: transparent;
-            color: #fff;
-            border: 1px solid #fff;
-            cursor: pointer;
-            letter-spacing: 3px;
-            transition: 0.3s;
-        }
+.intro {
+    text-align: center;
+    position: relative;
+}
 
-        button:hover {
-            background: #fff;
-            color: #000;
-        }
+.intro h1 {
+    font-size: clamp(3rem, 12vw, 7rem);
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    animation: fadeIn 2s ease forwards;
+}
 
-        #chapter {
-            display: none;
-        }
+.intro .subtitle {
+    margin-top: 20px;
+    font-size: 1rem;
+    letter-spacing: 0.35em;
+    color: #888;
+    text-transform: uppercase;
+    animation: fadeIn 3s ease forwards;
+}
 
-        #chapter h2 {
-            letter-spacing: 4px;
-            margin-bottom: 30px;
-        }
+.line {
+    width: 80px;
+    height: 1px;
+    background: #777;
+    margin: 35px auto;
+}
 
-        #chapter p {
-            color: #ccc;
-            line-height: 1.9;
-            margin-bottom: 18px;
-        }
+.intro p {
+    max-width: 650px;
+    margin: auto;
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 1rem;
+}
 
-        .memory {
-            color: #fff;
-            font-style: italic;
-            margin: 30px 0;
-        }
-    </style>
+/* CHAPTER */
+
+.chapter {
+    background: rgba(255,255,255,0.015);
+}
+
+.chapter h2 {
+    font-size: clamp(2rem, 7vw, 4rem);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.chapter-number {
+    color: #666;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.story {
+    color: #ccc;
+    line-height: 1.9;
+    font-size: 1.05rem;
+}
+
+.story p {
+    margin-bottom: 25px;
+}
+
+.emphasis {
+    color: #fff;
+    font-weight: bold;
+}
+
+.memory {
+    border-left: 2px solid #777;
+    padding-left: 20px;
+    margin: 35px 0;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* AWAKENING */
+
+.awakening {
+    text-align: center;
+}
+
+.awakening h2 {
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    letter-spacing: 0.12em;
+    margin-bottom: 30px;
+}
+
+.awakening p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #aaa;
+    line-height: 1.9;
+}
+
+.pulse {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 40px auto;
+    animation: pulse 2s infinite;
+}
+
+/* END */
+
+.end {
+    text-align: center;
+}
+
+.end h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    letter-spacing: 0.15em;
+}
+
+.end p {
+    margin-top: 20px;
+    color: #777;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <main class="screen">
+<!-- INTRO -->
 
-        <!-- TITLE SCREEN -->
-        <section class="content" id="intro">
+<section class="intro">
+    <div class="container">
 
-            <h1>LIMITLESS</h1>
+        <h1>LIMITLESS</h1>
 
-            <div class="subtitle">
-                THE AWAKENING
-            </div>
+        <div class="subtitle">
+            The Awakening
+        </div>
 
-            <div class="story">
-                He awoke without a name.
-                <br>
-                Without a past.
-                <br>
-                Only fragments remained.
-            </div>
+        <div class="line"></div>
 
-            <button onclick="beginStory()">
-                BEGIN
-            </button>
+        <p>
+            Some memories are forgotten.
+            Others are waiting to be remembered.
+        </p>
 
-        </section>
+    </div>
+</section>
 
 
-        <!-- CHAPTER ONE -->
-        <section class="content" id="chapter">
+<!-- CHAPTER ONE -->
 
-            <h2>CHAPTER ONE</h2>
+<section class="chapter">
+    <div class="container">
 
-            <p>Darkness.</p>
+        <div class="chapter-number">
+            Chapter One
+        </div>
 
-            <p>A breath.</p>
+        <h2>The Awakening</h2>
 
-            <p>His eyes opened.</p>
-
-            <p>Nothing felt familiar.</p>
-
-            <p>Then—</p>
-
-            <p>A memory.</p>
-
-            <p>A voice.</p>
-
-            <p>He couldn't see the face.</p>
-
-            <p>He couldn't remember the name.</p>
-
-            <p>But he remembered the words.</p>
-
-            <p class="memory">
-                "You have to remember."
-            </p>
-
-            <p>The memory remained.</p>
+        <div class="story">
 
             <p>
-                And for the first time, he knew one thing:
+                He woke before the alarm.
             </p>
 
             <p>
-                Someone wanted him to remember.
+                For a few seconds, he didn't move.
+                He simply stared into the darkness, listening to the quiet
+                rhythm of his own breathing.
             </p>
 
-            <button onclick="nextChapter()">
-                CONTINUE
-            </button>
+            <p>
+                Something felt different.
+            </p>
 
-        </section>
+            <p>
+                Not wrong.
+            </p>
 
-    </main>
+            <p>
+                Just... familiar.
+            </p>
+
+            <div class="memory">
+                A place he couldn't name.<br>
+                A voice he couldn't remember.<br>
+                A feeling that somehow belonged to him.
+            </div>
+
+            <p>
+                He closed his eyes.
+            </p>
+
+            <p>
+                The memory didn't disappear.
+            </p>
+
+            <p>
+                It remained.
+            </p>
+
+            <p>
+                Somewhere beneath the thoughts he could consciously reach,
+                something was beginning to surface.
+            </p>
+
+            <p>
+                He opened his eyes again.
+            </p>
+
+            <p>
+                His surroundings looked exactly the same.
+            </p>
+
+            <p>
+                But his body didn't feel the same.
+            </p>
+
+            <p>
+                His breathing had changed.
+                His balance felt different.
+                Even the way his hands rested against the surface beneath him
+                felt strangely natural.
+            </p>
+
+            <p class="emphasis">
+                His mind remembered a fragment.
+            </p>
+
+            <p class="emphasis">
+                His body remembered something else.
+            </p>
+
+            <p>
+                He stood slowly.
+            </p>
+
+            <p>
+                There was no sudden transformation.
+                No explanation.
+                No voice telling him what was happening.
+            </p>
+
+            <p>
+                Only the quiet realization that whatever had been asleep inside
+                him was no longer completely asleep.
+            </p>
+
+            <div class="memory">
+                He didn't know who he had been.
+                <br><br>
+                But some part of him already knew
+                that he had been someone.
+            </div>
+
+            <p>
+                He looked toward the window.
+            </p>
+
+            <p>
+                The morning waited outside.
+            </p>
+
+            <p>
+                And for the first time in a long time,
+                he felt like he was supposed to be somewhere.
+            </p>
+
+        </div>
+
+    </div>
+</section>
 
 
-    <script>
+<!-- AWAKENING -->
 
-        function beginStory() {
-            document.getElementById("intro").style.display = "none";
-            document.getElementById("chapter").style.display = "block";
-        }
+<section class="awakening">
+    <div class="container">
 
-        function nextChapter() {
-            alert("Chapter One continues...");
-        }
+        <h2>REMEMBER</h2>
 
-    </script>
+        <div class="pulse"></div>
+
+        <p>
+            The memories had not vanished.
+        </p>
+
+        <p>
+            They were waiting.
+        </p>
+
+        <p>
+            And now, slowly,
+            so was the rest of him.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- END -->
+
+<section class="end">
+    <div class="container">
+
+        <h2>TO BE CONTINUED</h2>
+
+        <p>
+            Chapter One
+        </p>
+
+    </div>
+</section>
 
 </body>
 </html>
